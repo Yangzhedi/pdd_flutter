@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
+import 'package:fluro/fluro.dart';
 
+
+import 'routers/routers.dart';
+import 'routers/application.dart';
 
 const NotoSerifSCTextStyle = const TextStyle(
   fontFamily: 'NotoSerifSC',
@@ -9,6 +13,14 @@ const NotoSerifSCTextStyle = const TextStyle(
 void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
+  MyApp()  {
+    final router = new Router();
+
+    Routes.configureRoutes(router);
+
+    Application.router = router;
+  }
+
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
